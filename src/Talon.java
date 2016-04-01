@@ -3,9 +3,11 @@
  */
 public class Talon {
     private final int order;
+    private boolean status; // true - free parking place. false - taken
     private final Size size;
 
-    public Talon(int order, Size size) {
+    public Talon(int order, Size size, boolean status) {
+        this.status = status;
         this.order = order;
         this.size = size;
     }
@@ -16,5 +18,13 @@ public class Talon {
 
     public Size getTalonSize() {
         return size;
+    }
+
+    public boolean getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 }

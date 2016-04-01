@@ -3,7 +3,7 @@ import java.util.Collection;
 /**
  * Created by Zamira on 4/1/16.
  */
-public class CarPark {
+public class CarPark implements CarParkI {
 
     private Collection<Talon> mTalons;
 
@@ -11,30 +11,37 @@ public class CarPark {
         this.mTalons = talons;
     }
 
-    /**
-     * Метод возвращает null если подходящих мест не найдено.
-     * @param car
-     * @return
-     */
-    public Talon pushCar(Car car){
+    public int park(boolean truck){
+        Size size;
+        if (truck == true){
+            size = Size.Huge;
+        } else {
+            size = Size.Small;
+        }
         for(Talon item:mTalons){
             // Тут ищем место которое точно подходит для нашего авто
-            if (item.getTalonSize() == car.getSize()){
-                mTalons.remove(item);
-                return item;
+            if (item.getTalonSize() == size){
+                item.setStatus(false);
+                return item.getOrder();
             }
         }
         // Eсли не нашли, то хотя бы ищем место грузового для легковой машины
         for(Talon item:mTalons) {
-            if (item.getTalonSize().ordinal() > car.getSize().ordinal()) {
-                mTalons.remove(item);
-                return item;
+            if (item.getTalonSize().ordinal() > size.ordinal()) {
+                item.setStatus(false);
+                return item.getOrder();
             }
         }
-        return null;
+        return 0;
     }
 
-    public void popCar(Talon talon){
-        mTalons.add(talon);
+    public int unpark(int number){
+        for(Talon item:mTalons) {
+            if (item.getOrder() == number) {
+                item.setStatus(false);
+                return number;
+            }
+        }
+        return 0;
     }
 }
