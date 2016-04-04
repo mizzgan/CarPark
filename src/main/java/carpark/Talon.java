@@ -1,6 +1,6 @@
-package carpark;
+package main.java.carpark;
 
-import carpark.Size;
+import main.java.carpark.Size;
 
 /**
  * Created by Zamira on 4/1/16.
