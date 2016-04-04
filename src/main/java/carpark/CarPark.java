@@ -1,3 +1,5 @@
+package carpark;
+
 import java.util.Collection;
 
 /**

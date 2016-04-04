@@ -1,3 +1,5 @@
+package carpark;
+
 public interface CarParkI {
 	public int park(boolean truck);
 

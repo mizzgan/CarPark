@@ -1,3 +1,7 @@
+package carpark;
+
+import carpark.Size;
+
 /**
  * Created by Zamira on 4/1/16.
  */
