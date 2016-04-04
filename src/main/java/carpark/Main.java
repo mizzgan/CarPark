@@ -13,7 +13,7 @@ public class Main {
         talons.add(new Talon(4, Size.Small, true));
         talons.add(new Talon(5, Size.Huge, false));
 
-        CarPark carPark = new CarPark(talons);
+        CarPark carPark = new CarPark(0, 6);
         Integer parkResult = carPark.park(true);
 
         if (parkResult != 0){

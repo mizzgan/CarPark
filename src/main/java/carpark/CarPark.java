@@ -1,5 +1,6 @@
 package main.java.carpark;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 /**
@@ -10,6 +11,19 @@ public class CarPark implements CarParkI {
     private Collection<Talon> mTalons;
 
     public CarPark(Collection<Talon> talons) {
+        this.mTalons = talons;
+    }
+
+    public CarPark(int truckAmount, int carAmount) {
+        Collection<Talon> talons = new ArrayList<Talon>();
+        for (int i = 0; i < truckAmount; i++){
+            Talon talon = new Talon(i+1, Size.Huge, false);
+            talons.add(talon);
+        }
+        for (int i = truckAmount; i < carAmount + truckAmount; i++){
+            Talon talon = new Talon(i+1, Size.Small, false);
+            talons.add(talon);
+        }
         this.mTalons = talons;
     }
 
