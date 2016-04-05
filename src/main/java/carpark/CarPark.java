@@ -1,4 +1,4 @@
-package main.java.carpark;
+package carpark;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -59,5 +59,13 @@ public class CarPark implements CarParkI {
             }
         }
         return 0;
+    }
+
+    public int parkCar() {
+        return park(false);
+    }
+
+    public int parkTruck() {
+        return park(true);
     }
 }

@@ -1,4 +1,4 @@
-package main.java.carpark;
+package carpark;
 
 public interface CarParkI {
 	public int park(boolean truck);
